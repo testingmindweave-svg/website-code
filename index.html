@@ -14,6 +14,10 @@
     box-sizing: border-box;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     font-family: 'Montserrat', sans-serif;
     background: #0D0D0D;
@@ -21,14 +25,38 @@ body {
     line-height: 1.6;
 }
 
-h1, h2 {
-    font-family: 'Playfair Display', serif;
-    letter-spacing: 2px;
+/* NAVBAR */
+
+nav {
+    position: fixed;
+    width: 100%;
+    padding: 20px 10%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(0,0,0,0.7);
+    backdrop-filter: blur(10px);
+    z-index: 1000;
 }
 
-section {
-    padding: 100px 10%;
+nav h2 {
+    font-family: 'Playfair Display', serif;
+    letter-spacing: 3px;
 }
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin-left: 25px;
+    font-weight: 400;
+    transition: 0.3s;
+}
+
+nav a:hover {
+    color: #C29D67;
+}
+
+/* HERO */
 
 .hero {
     height: 100vh;
@@ -39,16 +67,21 @@ section {
     justify-content: center;
     align-items: center;
     text-align: center;
+    padding: 0 20px;
 }
 
 .hero h1 {
     font-size: 70px;
+    font-family: 'Playfair Display', serif;
+    letter-spacing: 4px;
+    animation: fadeIn 1.5s ease forwards;
 }
 
 .hero p {
     font-size: 20px;
     margin: 20px 0;
     color: #E5E5E5;
+    animation: fadeIn 2s ease forwards;
 }
 
 .btn {
@@ -67,14 +100,20 @@ section {
     color: black;
 }
 
-.about {
+/* SECTIONS */
+
+section {
+    padding: 120px 10%;
     text-align: center;
 }
 
-.about h2 {
-    font-size: 40px;
-    margin-bottom: 20px;
+h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 42px;
+    margin-bottom: 25px;
 }
+
+/* GALLERY */
 
 .gallery {
     display: grid;
@@ -93,12 +132,10 @@ section {
     transform: scale(1.05);
 }
 
-.reservation {
-    text-align: center;
-}
+/* FORM */
 
 form input, form select {
-    width: 250px;
+    width: 260px;
     padding: 12px;
     margin: 10px;
     background: transparent;
@@ -120,35 +157,59 @@ form button:hover {
     color: black;
 }
 
+/* FOOTER */
+
 footer {
     text-align: center;
-    padding: 30px;
+    padding: 40px 20px;
     border-top: 1px solid #333;
     font-size: 14px;
     color: #888;
+}
+
+.socials a {
+    margin: 0 10px;
+    color: #C29D67;
+    text-decoration: none;
+}
+
+/* ANIMATION */
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
 }
 </style>
 </head>
 
 <body>
 
+<nav>
+    <h2>CAVO</h2>
+    <div>
+        <a href="#about">About</a>
+        <a href="#gallery">Gallery</a>
+        <a href="#reservation">Reserve</a>
+    </div>
+</nav>
+
 <section class="hero">
     <h1>CAVO</h1>
     <p>Mediterranean Dining Above Dubai</p>
     <a href="#reservation" class="btn">Reserve a Table</a>
-    <a href="#gallery" class="btn">Explore Experience</a>
 </section>
 
-<section class="about">
+<section id="about">
     <h2>Where Flavor Meets the Skyline</h2>
     <p>
         Located in Business Bay, Cavo blends Mediterranean cuisine,
         elevated ambiance, and vibrant lounge energy — creating
-        an unforgettable dining experience in the heart of Dubai.
+        unforgettable dining experiences in Dubai.
     </p>
 </section>
 
 <section id="gallery">
+    <h2>Experience Cavo</h2>
     <div class="gallery">
         <img src="https://images.unsplash.com/photo-1600891964599-f61ba0e24092?auto=format&fit=crop&w=1000&q=80">
         <img src="https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=1000&q=80">
@@ -157,7 +218,7 @@ footer {
     </div>
 </section>
 
-<section id="reservation" class="reservation">
+<section id="reservation">
     <h2>Reserve Your Experience</h2>
     <form>
         <input type="text" placeholder="Full Name" required><br>
@@ -174,7 +235,12 @@ footer {
 </section>
 
 <footer>
-    CAVO Restaurant Dubai | Ramee Dream Hotel, Business Bay | Dubai, UAE
+    <p>CAVO Restaurant Dubai | Ramee Dream Hotel | Business Bay</p>
+    <div class="socials">
+        <a href="#">Instagram</a>
+        <a href="#">Facebook</a>
+        <a href="#">TripAdvisor</a>
+    </div>
 </footer>
 
 </body>
