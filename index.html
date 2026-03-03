@@ -6,199 +6,223 @@
 <title>CAVO Restaurant Dubai</title>
 
 <style>
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: Arial, sans-serif;
-    scroll-behavior: smooth;
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, sans-serif;
+    scroll-behavior:smooth;
 }
 
-body {
-    background: #0f0f0f;
-    color: white;
+body{
+    background:#0f0f0f;
+    color:white;
 }
 
-/* NAVIGATION */
-nav {
-    position: fixed;
-    width: 100%;
-    background: rgba(0,0,0,0.95);
-    padding: 15px 8%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    z-index: 1000;
+/* NAVBAR */
+nav{
+    position:fixed;
+    width:100%;
+    background:rgba(0,0,0,0.95);
+    padding:15px 8%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    z-index:1000;
 }
 
-nav h2 {
-    color: #C29D67;
-    letter-spacing: 3px;
+nav h2{
+    color:#C29D67;
+    letter-spacing:3px;
 }
 
-nav a {
-    color: white;
-    text-decoration: none;
-    margin-left: 25px;
-    font-size: 14px;
-    transition: 0.3s;
+nav a{
+    color:white;
+    text-decoration:none;
+    margin-left:25px;
+    font-size:14px;
+    transition:0.3s;
 }
 
-nav a:hover {
-    color: #C29D67;
+nav a:hover{
+    color:#C29D67;
 }
 
-/* HERO */
-.hero {
-    height: 100vh;
-    background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.9)),
-    url('https://images.unsplash.com/photo-1555396273-367ea4eb4db5') center/cover;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    padding: 20px;
+/* HERO SECTION WITH IMAGE SLIDESHOW */
+.hero{
+    position:relative;
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    overflow:hidden;
 }
 
-.hero h1 {
-    font-size: 65px;
-    letter-spacing: 6px;
+.hero::before{
+    content:"";
+    position:absolute;
+    width:100%;
+    height:100%;
+    background-size:cover;
+    background-position:center;
+    animation:slideshow 18s infinite;
+    z-index:-2;
 }
 
-.hero p {
-    margin-top: 15px;
-    font-size: 18px;
-    color: #ccc;
+.hero::after{
+    content:"";
+    position:absolute;
+    width:100%;
+    height:100%;
+    background:rgba(0,0,0,0.65);
+    z-index:-1;
 }
 
-.btn {
-    display: inline-block;
-    margin-top: 25px;
-    padding: 12px 35px;
-    background: #C29D67;
-    color: black;
-    text-decoration: none;
-    font-weight: bold;
-    transition: 0.3s;
+@keyframes slideshow{
+    0% {background-image:url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4');}
+    33% {background-image:url('https://images.unsplash.com/photo-1550966871-3ed3cdb5ed0c');}
+    66% {background-image:url('https://images.unsplash.com/photo-1504674900247-0877df9cc836');}
+    100% {background-image:url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4');}
 }
 
-.btn:hover {
-    background: white;
+.hero h1{
+    font-size:65px;
+    letter-spacing:6px;
+}
+
+.hero p{
+    margin-top:15px;
+    font-size:18px;
+    color:#ddd;
+}
+
+.btn{
+    display:inline-block;
+    margin-top:25px;
+    padding:12px 35px;
+    background:#C29D67;
+    color:black;
+    text-decoration:none;
+    font-weight:bold;
+    transition:0.3s;
+}
+
+.btn:hover{
+    background:white;
 }
 
 /* SECTIONS */
-section {
-    padding: 100px 10%;
-    text-align: center;
+section{
+    padding:100px 10%;
+    text-align:center;
 }
 
-section h2 {
-    font-size: 38px;
-    margin-bottom: 20px;
-    color: #C29D67;
+section h2{
+    font-size:38px;
+    margin-bottom:20px;
+    color:#C29D67;
 }
 
 /* GALLERY */
-.gallery {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 15px;
-    margin-top: 40px;
+.gallery{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:15px;
+    margin-top:40px;
 }
 
-.gallery img {
-    width: 100%;
-    height: 300px;
-    object-fit: cover;
+.gallery img{
+    width:100%;
+    height:300px;
+    object-fit:cover;
 }
 
 /* MENU */
-#menu {
-    background: #111;
-    text-align: left;
+#menu{
+    background:#111;
+    text-align:left;
 }
 
-.menu-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 40px;
-    margin-top: 40px;
+.menu-container{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+    gap:40px;
+    margin-top:40px;
 }
 
-.menu-category h3 {
-    color: #C29D67;
-    margin-bottom: 15px;
+.menu-category h3{
+    color:#C29D67;
+    margin-bottom:15px;
 }
 
-.menu-item {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 10px;
-    color: #ddd;
+.menu-item{
+    display:flex;
+    justify-content:space-between;
+    margin-bottom:10px;
+    color:#ddd;
 }
 
-.menu-item span {
-    color: #C29D67;
+.menu-item span{
+    color:#C29D67;
 }
 
 /* FORM */
-form {
-    margin-top: 30px;
-    max-width: 600px;
-    margin-left: auto;
-    margin-right: auto;
+form{
+    margin-top:30px;
+    max-width:600px;
+    margin-left:auto;
+    margin-right:auto;
 }
 
-form input, form textarea {
-    width: 100%;
-    padding: 12px;
-    margin-bottom: 15px;
-    background: #1a1a1a;
-    border: none;
-    color: white;
+form input, form textarea{
+    width:100%;
+    padding:12px;
+    margin-bottom:15px;
+    background:#1a1a1a;
+    border:none;
+    color:white;
 }
 
-form button {
-    padding: 12px 30px;
-    background: #C29D67;
-    border: none;
-    cursor: pointer;
-    font-weight: bold;
+form button{
+    padding:12px 30px;
+    background:#C29D67;
+    border:none;
+    cursor:pointer;
+    font-weight:bold;
 }
 
 /* FOOTER */
-footer {
-    background: black;
-    padding: 30px;
-    text-align: center;
-    color: #777;
+footer{
+    background:black;
+    padding:30px;
+    text-align:center;
+    color:#777;
 }
 
-/* WHATSAPP BUTTON */
-.whatsapp-btn {
-    position: fixed;
-    bottom: 25px;
-    right: 25px;
-    background: #25D366;
-    color: white;
-    font-size: 24px;
-    padding: 15px 18px;
-    border-radius: 50%;
-    text-decoration: none;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.4);
-    z-index: 1000;
-    transition: 0.3s;
+/* WHATSAPP */
+.whatsapp-btn{
+    position:fixed;
+    bottom:25px;
+    right:25px;
+    background:#25D366;
+    color:white;
+    font-size:24px;
+    padding:15px 18px;
+    border-radius:50%;
+    text-decoration:none;
+    box-shadow:0 5px 15px rgba(0,0,0,0.4);
+    z-index:1000;
+    transition:0.3s;
 }
 
-.whatsapp-btn:hover {
-    transform: scale(1.1);
+.whatsapp-btn:hover{
+    transform:scale(1.1);
 }
 
 /* MOBILE */
 @media(max-width:768px){
-    .hero h1 {
-        font-size: 40px;
-    }
+    .hero h1{font-size:40px;}
 }
 </style>
 </head>
@@ -241,7 +265,6 @@ footer {
 <section id="menu">
     <h2>Our Menu</h2>
     <div class="menu-container">
-
         <div class="menu-category">
             <h3>Starters</h3>
             <div class="menu-item">Zucchini Fries <span>AED 70</span></div>
@@ -257,19 +280,11 @@ footer {
         </div>
 
         <div class="menu-category">
-            <h3>Pizzas</h3>
-            <div class="menu-item">Margherita <span>AED 90</span></div>
-            <div class="menu-item">Pepperoni <span>AED 110</span></div>
-            <div class="menu-item">Frutti di Mare <span>AED 120</span></div>
-        </div>
-
-        <div class="menu-category">
             <h3>Desserts</h3>
             <div class="menu-item">Matcha Tiramisu <span>AED 70</span></div>
             <div class="menu-item">Miso Crème Brûlée <span>AED 80</span></div>
             <div class="menu-item">Hokkaido Cheesecake <span>AED 65</span></div>
         </div>
-
     </div>
 </section>
 
@@ -295,7 +310,7 @@ footer {
 </footer>
 
 <a href="https://wa.me/971000000000" class="whatsapp-btn" target="_blank">
-    💬
+💬
 </a>
 
 </body>
